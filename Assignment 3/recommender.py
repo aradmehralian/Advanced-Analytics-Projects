@@ -383,7 +383,7 @@ class GameSearchEngine:
         evidence_block = "\n\n---\n\n".join(evidence_lines)
         
         prompt = (
-        "You are a precise Steam game curator writing a concise personalized note.\n"
+        "You are a precise Steam game curator writing a concise personalised note.\n"
         "User query: " + repr(query) + "\n\n"
         "Use ONLY the retrieved-game evidence below. Do not invent titles, features, "
         "numbers, languages, mechanics, or review details that are not present in the evidence.\n"
