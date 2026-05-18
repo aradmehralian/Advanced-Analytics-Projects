@@ -16,7 +16,7 @@ BASE_DIR = Path(__file__).resolve().parent
 DB_PATH = Path(os.environ.get("RAGLOOKER_DB_PATH", BASE_DIR / "steam_games_reviews_25.sqlite"))
 CHROMA_PATH = BASE_DIR / "chroma_db"
 MAX_GAMES = 5000
-DEFAULT_MATCH_COUNT = 5
+DEFAULT_MATCH_COUNT = 15
 COLLECTION_NAME = "steam_games"
 EMBEDDING_MODEL = "BAAI/bge-small-en-v1.5"
 LLM_MODEL = "gemma3:1b"
@@ -61,9 +61,9 @@ class GameRecord:
     @staticmethod
     def _normalize_tags(tags: Any) -> list[str]:
         if isinstance(tags, dict):
-            return list(tags.keys())[:8]
+            return list(tags.keys())[:15]
         if isinstance(tags, list):
-            return tags[:8]
+            return tags[:15]
         return []
 
 
@@ -189,11 +189,34 @@ class GameSearchEngine:
                 "note": "Retrieval via ChromaDB + bge-small-en-v1.5, answer via phi3.5.",
             },
         }
+    def _expand_query(self, query: str) -> str:
+        """Use the LLM to expand the query with related keywords before embedding."""
+        prompt = f"""You are helping search a Steam game database. 
+        Expand this search query with 8-10 specific gaming keywords that would help find relevant games.
+        Stay close to what the user is asking — do not generalize or add unrelated concepts.
+        Only output keywords separated by commas, nothing else.
+
+    Query: "{query}"
+
+    Keywords:"""
+
+        try:
+            response = ollama.chat(
+                model=LLM_MODEL,
+                messages=[{"role": "user", "content": prompt}],
+                options={"num_predict": 80, "temperature": 0.3},
+            )
+            expanded = response["message"]["content"].strip()
+            return f"{query} {expanded}"
+        except Exception:
+            return query  # Fall back to original query if LLM fails
+
 
     def retrieve_candidates(self, query: str) -> list[GameRecord]:
         """
         Embed the query and retrieve the most similar games from ChromaDB.
         """
+        expanded_query = self._expand_query(query)
         query_embedding = self.embedder.encode(query).tolist()
 
         results = self.collection.query(
@@ -267,7 +290,7 @@ class GameSearchEngine:
 
         context = "\n\n".join(game_contexts)
 
-        prompt = f"""You are a helpful Steam game recommender.
+        prompt = f"""You are a helpful Steam game recommender. Your job is to recommend games based strictly on what the user asks for.
 
 User query: "{query}"
 
@@ -275,7 +298,15 @@ Most relevant games found:
 
 {context}
 
-Write a short recommendation (3-5 sentences). Mention the top 2-3 games by name and explain why they match the query. Be conversational and enthusiastic."""
+Instructions:
+- Recommend the 2-3 best matches from the list above
+- Focus ONLY on the aspects the user explicitly mentioned in their query
+- Do NOT invent features or characteristics that are not in the query or game descriptions
+- Do NOT use informal expressions or filler words
+- Explain specifically why each game matches what the user is looking for
+- Keep your answer to 3-5 sentences
+
+Recommendation:"""
 
         try:
             response = ollama.chat(
