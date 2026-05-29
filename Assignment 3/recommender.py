@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import os
-import random
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -185,38 +184,16 @@ class GameSearchEngine:
             "answer": self.generate_answer(query, ranked_matches),
             "meta": {
                 "indexed_games": len(self.records),
-                "retrieval_mode": "embedding-bge-small + phi3.5",
-                "note": "Retrieval via ChromaDB + bge-small-en-v1.5, answer via phi3.5.",
+                "retrieval_mode": "embedding-bge-small + gemma3:1b",
+                "note": "Retrieval via ChromaDB + bge-small-en-v1.5, answer via gemma3:1b",
             },
         }
-    def _expand_query(self, query: str) -> str:
-        """Use the LLM to expand the query with related keywords before embedding."""
-        prompt = f"""You are helping search a Steam game database. 
-        Expand this search query with 8-10 specific gaming keywords that would help find relevant games.
-        Stay close to what the user is asking — do not generalize or add unrelated concepts.
-        Only output keywords separated by commas, nothing else.
-
-    Query: "{query}"
-
-    Keywords:"""
-
-        try:
-            response = ollama.chat(
-                model=LLM_MODEL,
-                messages=[{"role": "user", "content": prompt}],
-                options={"num_predict": 80, "temperature": 0.3},
-            )
-            expanded = response["message"]["content"].strip()
-            return f"{query} {expanded}"
-        except Exception:
-            return query  # Fall back to original query if LLM fails
 
 
     def retrieve_candidates(self, query: str) -> list[GameRecord]:
         """
         Embed the query and retrieve the most similar games from ChromaDB.
         """
-        expanded_query = self._expand_query(query)
         query_embedding = self.embedder.encode(query).tolist()
 
         results = self.collection.query(
@@ -259,7 +236,7 @@ class GameSearchEngine:
 
     def generate_answer(self, query: str, matches: list[tuple[GameRecord, float]]) -> str:
         """
-        Generate a natural language recommendation using phi3.5 via Ollama.
+        Generate a natural language recommendation using gemma3:1b via Ollama.
         """
         if not matches:
             return "No games were available to recommend."
