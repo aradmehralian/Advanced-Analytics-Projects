@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://127.0.0.1:5000/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Raglooker</title>
+    <link rel="stylesheet" href="./Raglooker_files/styles.css">
+  <link rel="stylesheet" href="chrome-extension://3a63ef0e-9428-43df-81b6-7d12c7d2ae0a/app/content-style.css"></head>
+  <body>
+    <main class="shell">
+      <header class="page-header">
+        <p class="eyebrow">Local RAG Playground</p>
+        <h1>Game Recommender</h1>
+      </header>
+
+      <section class="panel">
+        <form id="search-form">
+          <label for="query" class="label">Game description</label>
+          <textarea id="query" name="query" rows="5" placeholder="Example: I want a cozy card game with simple mechanics and a fun vibe." required=""></textarea>
+          <div class="actions">
+            <button type="submit" id="submit-button">Find matches</button>
+            <p id="status" class="status">Search complete.</p>
+          </div>
+        </form>
+      </section>
+
+      <section class="results-stack">
+        <article class="panel answer-panel spotlight-panel">
+          <div class="panel-header">
+            <div>
+              <p class="section-kicker">Recommendation</p>
+              <h2>LLM answer</h2>
+            </div>
+          </div>
+          <div id="answer" class="answer-copy">- MainFrames: Dive into a whimsical world where every step is within your PC screen, offering an intimate platforming experience with Floppy. The game's clever use of space and engaging narrative invites you to explore comfortably cozy environments without needing traditional controls like the escape key. It promises immersion in its own unique way that aligns perfectly with a desire for warmth and familiarity in gaming settings, complemented by an unstated but likely pleasant soundtrack.
+
+- Aesthetic Melody: Immerse yourself in 30 minutes of atmospheric electronic vaporwave music while tackling platforming challenges that reward progression with new experiences like Time Trial mode and a second character twist. This unique blend of auditory delight within gameplay offers an inventive way to enjoy the soundtrack as part of your adventure, providing both challenge and musical exploration for those seeking depth in their audio-visual experience on platforms that define coziness with simplicity.
+
+- LOVE: Step into a retro platforming journey where each level's difficulty is tailored by custom respawning mechanics alongside an engaging competitive scoring system, all set to 12 tracks of soundtrack music. The combination of challenging gameplay and the ability for creative expression through level design speaks directly to your craving for a cozy platformer with depth—a retro</div>
+        </article>
+
+        <article class="panel matches-panel">
+          <div class="panel-header">
+            <div>
+              <p class="section-kicker">Candidate set</p>
+              <h2>Matches</h2>
+            </div>
+            <span id="match-count" class="badge">39,164 games indexed.</span>
+          </div>
+          <div id="matches" class="matches"><div class="match-card">
+            <div class="match-score-badge">61% Match</div>
+            <img src="./Raglooker_files/header.jpg" class="match-image" alt="MainFrames">
+            <div class="match-content">
+                <div class="section-kicker">Recommended Title</div>
+                <h3>MainFrames</h3>
+                <div class="match-tags" style="display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px;">
+                    <span class="tag">
+                        adventure 
+                        <span style="opacity: 0.5; font-size: 0.6rem; margin-left: 4px;"> 271</span>
+                    </span>
+                    <span class="tag">
+                        physics 
+                        <span style="opacity: 0.5; font-size: 0.6rem; margin-left: 4px;"> 240</span>
+                    </span>
+                    <span class="tag">
+                        platformer 
+                        <span style="opacity: 0.5; font-size: 0.6rem; margin-left: 4px;"> 235</span>
+                    </span>
+                    <span class="tag">
+                        puzzle 
+                        <span style="opacity: 0.5; font-size: 0.6rem; margin-left: 4px;"> 227</span>
+                    </span>
+                    <span class="tag">
+                        puzzle-platformer 
+                        <span style="opacity: 0.5; font-size: 0.6rem; margin-left: 4px;"> 220</span>
+                    </span></div>
+
+                <p class="match-description">MainFrames invites you to meet Floppy and to browse a clever and charming platformer that plays out entirely within the windows and desktop of a PC monitor. You won’t want to press the escape key on this cozy outing!</p>
+            </div>
+            <a href="https://store.steampowered.com/app/1521360" target="_blank" class="match-link">View on Steam</a>
+        </div><div class="match-card">
+            <div class="match-score-badge">59% Match</div>
+            <img src="./Raglooker_files/header(1).jpg" class="match-image" alt="Aesthetic Melody">
+            <div class="match-content">
+                <div class="section-kicker">Recommended Title</div>
+                <h3>Aesthetic Melody</h3>
+                <div class="match-tags" style="display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px;">
+                    <span class="tag">
+                        collectathon 
+                        <span style="opacity: 0.5; font-size: 0.6rem; margin-left: 4px;"> 144</span>
+                    </span>
+                    <span class="tag">
+                        difficult 
+                        <span style="opacity: 0.5; font-size: 0.6rem; margin-left: 4px;"> 138</span>
+                    </span>
+                    <span class="tag">
+                        platformer 
+                        <span style="opacity: 0.5; font-size: 0.6rem; margin-left: 4px;"> 135</span>
+                    </span>
+                    <span class="tag">
+                        2d 
+                        <span style="opacity: 0.5; font-size: 0.6rem; margin-left: 4px;"> 132</span>
+                    </span>
+                    <span class="tag">
+                        funny 
+                        <span style="opacity: 0.5; font-size: 0.6rem; margin-left: 4px;"> 128</span>
+                    </span></div>
+
+                <p class="match-description">Sit back and enjoy 30 minutes of original electronic and vaporwave music in this challenging platformer, push forward to unlock Time Trial mode and a second playable character who completely changes the gameplay.</p>
+            </div>
+            <a href="https://store.steampowered.com/app/618360" target="_blank" class="match-link">View on Steam</a>
+        </div><div class="match-card">
+            <div class="match-score-badge">58% Match</div>
+            <img src="./Raglooker_files/header(2).jpg" class="match-image" alt="LOVE">
+            <div class="match-content">
+                <div class="section-kicker">Recommended Title</div>
+                <h3>LOVE</h3>
+                <div class="match-tags" style="display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px;">
+                    <span class="tag">
+                        platformer 
+                        <span style="opacity: 0.5; font-size: 0.6rem; margin-left: 4px;"> 127</span>
+                    </span>
+                    <span class="tag">
+                        indie 
+                        <span style="opacity: 0.5; font-size: 0.6rem; margin-left: 4px;"> 118</span>
+                    </span>
+                    <span class="tag">
+                        pixel graphics 
+                        <span style="opacity: 0.5; font-size: 0.6rem; margin-left: 4px;"> 75</span>
+                    </span>
+                    <span class="tag">
+                        retro 
+                        <span style="opacity: 0.5; font-size: 0.6rem; margin-left: 4px;"> 67</span>
+                    </span>
+                    <span class="tag">
+                        action 
+                        <span style="opacity: 0.5; font-size: 0.6rem; margin-left: 4px;"> 56</span>
+                    </span></div>
+
+                <p class="match-description">Love is a reductive platforming game with a retro aesthetic and a focus on a challenging difficulty. It has an custom respawn system, 16 levels, 12 track soundtrack, competitive scoring, and a simple-to-use level creation feature.</p>
+            </div>
+            <a href="https://store.steampowered.com/app/269270" target="_blank" class="match-link">View on Steam</a>
+        </div></div>
+        </article>
+      </section>
+    </main>
+
+    <template id="match-template"></template>
+
+    <script src="./Raglooker_files/app.js.download" defer=""></script>
+  
+</body></html>
