@@ -21,5 +21,5 @@ uv run flask --app app run --debug
 
 Alternatively I have added the generate\_embeddings.py file which if you have the sqllite db in the folder ill create the embeddings for you locally to save you the effort of downloading it. The process of generating the embeddings has also been logged in the BDA-III notebook which will also help you create the v4 embeddings used in the final app.
 
-![Game Recommender Preview](images/recommender_screenshot.png)
+![Game Recommender Preview](rec.jpg)
 
