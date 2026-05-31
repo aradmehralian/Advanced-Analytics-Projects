@@ -24,4 +24,12 @@ The NBViewer backend on Github seems to be having some issues rendering our code
 ---
 
 ### 📑 Assignment 3
-* **Notebook 3.1: BigData-III** [![Render Notebook]()
+
+Model 2:
+* **Notebook 3.2: build_embeddings** [![Render Notebook](https://img.shields.io/badge/Render-Notebook-blue?logo=jupyter)]()
+* **Notebook 3.2: build_retrieval_texts** [![Render Notebook](https://img.shields.io/badge/Render-Notebook-blue?logo=jupyter)]()
+* **Notebook 3.2: build_review_summaries** [![Render Notebook](https://img.shields.io/badge/Render-Notebook-blue?logo=jupyter)]()
+* **Notebook 3.2: eda_assignment_3** [![Render Notebook](https://img.shields.io/badge/Render-Notebook-blue?logo=jupyter)]()
+
+Model 3 (final):
+* **Notebook 3.3: BigData-III** [![Render Notebook](https://img.shields.io/badge/Render-Notebook-blue?logo=jupyter)]()
