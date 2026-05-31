@@ -12,7 +12,6 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 import re
-from steam_sqlite import load_games_from_sqlite
 
 BASE_DIR = Path(__file__).resolve().parent
 DB_PATH = Path(os.environ.get("RAGLOOKER_DB_PATH", BASE_DIR / "steam_games_reviews_25.sqlite"))
