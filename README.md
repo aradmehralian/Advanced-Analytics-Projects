@@ -26,10 +26,10 @@ The NBViewer backend on Github seems to be having some issues rendering our code
 ### 📑 Assignment 3
 
 Model 2:
-* **Notebook 3.1 build embeddings** [![Render Notebook](https://img.shields.io/badge/Render-Notebook-blue?logo=jupyter)](https://githubtocolab.com/aradmehralian/Advanced-Analytics-Projects/blob/final/Assignment%203/3.1%20Model%202/build%20embeddings.ipynb))
+* **Notebook 3.1 build embeddings** [![Render Notebook](https://img.shields.io/badge/Render-Notebook-blue?logo=jupyter)](https://githubtocolab.com/aradmehralian/Advanced-Analytics-Projects/blob/final/Assignment%203/3.1%20Model%202/build%20embeddings.ipynb)
 * **Notebook 3.2 retrieval texts** [![Render Notebook](https://img.shields.io/badge/Render-Notebook-blue?logo=jupyter)](https://githubtocolab.com/aradmehralian/Advanced-Analytics-Projects/blob/final/Assignment%203/3.1%20Model%202/build%20retrieval%20texts.ipynb)
 * **Notebook 3.3 review summaries** [![Render Notebook](https://img.shields.io/badge/Render-Notebook-blue?logo=jupyter)](https://githubtocolab.com/aradmehralian/Advanced-Analytics-Projects/blob/final/Assignment%203/3.1%20Model%202/build%20review%20summaries.ipynb)
 * **Notebook 3.4 eda** [![Render Notebook](https://img.shields.io/badge/Render-Notebook-blue?logo=jupyter)](https://githubtocolab.com/aradmehralian/Advanced-Analytics-Projects/blob/final/Assignment%203/3.1%20Model%202/eda%20assignment%203.ipynb)
-* 
+  
 Model 3 (final):
 * **Notebook 3.3: BigData-III** [![Render Notebook](https://img.shields.io/badge/Render-Notebook-blue?logo=jupyter)](https://githubtocolab.com/aradmehralian/Advanced-Analytics-Projects/blob/final/Assignment%203/3.3%20Final%20model%20%283%29/rag/BigData-III.ipynb)
